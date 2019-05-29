@@ -44,6 +44,14 @@ set softtabstop=0
 set shiftwidth=4
 set expandtab
 
+" caw:hatpos:toggle
+nmap <C-K> <Plug>(caw:hatpos:toggle)
+vmap <C-K> <Plug>(caw:hatpos:toggle)
+
+" ノーマルモード時だけ ; と : を入れ替える
+nnoremap ; :
+nnoremap : ;
+
 "
 " Vundle.vim
 "
@@ -56,7 +64,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'neutaaaaan/iosvkem'
-Plugin 'davidhalter/jedi-vim'
+Plugin 'tyru/caw.vim.git'
+"Plugin 'davidhalter/jedi-vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required

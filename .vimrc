@@ -35,7 +35,7 @@ nnoremap - <c-x>
  " バックスペースでなんでも消せるようにする
 set backspace=indent,eol,start
 
-set list                " 不可視文字の可視化
+" set list                " 不可視文字の可視化
 set number              " 行番号の表示
 set wrap                " 長いテキストの折り返し
 set textwidth=0         " 自動的に改行が入るのを無効化

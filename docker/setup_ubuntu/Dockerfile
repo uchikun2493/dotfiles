@@ -1,6 +1,8 @@
 FROM ubuntu:latest
 LABEL uchikun2493 <um2493@gmail.com>
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update
 RUN apt-get install -y  python3-dev \
                         python3-pip \

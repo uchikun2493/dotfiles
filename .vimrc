@@ -32,6 +32,10 @@ vnoremap <  <gvnoremap {}  {}<left>
 nnoremap + <c-a>
 nnoremap - <c-x>
 
+" j, k による移動を折り返されたテキストでも自然に振る舞うように変更
+nnoremap j gj
+nnoremap k gk
+
  " バックスペースでなんでも消せるようにする
 set backspace=indent,eol,start
 

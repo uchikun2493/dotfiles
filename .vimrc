@@ -125,23 +125,45 @@ nnoremap : ;
 
 " *************************************
 " 
-" Vundle
+" dein
 "
 " *************************************
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" ポップアップを無効化
+autocmd FileType python setlocal completeopt-=preview
 
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'neutaaaaan/iosvkem'
-Plugin 'tyru/caw.vim.git'
-"Plugin 'davidhalter/jedi-vim'
+" Required:
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
-call vundle#end()            " required
-filetype plugin indent on    " required
+" Required:
+if dein#load_state('~/.cache/dein')
+    call dein#begin('~/.cache/dein')
 
+    " Let dein manage dein
+    " Required:
+    call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+
+    " Add or remove your plugins here like this:
+    "call dein#add('Shougo/neosnippet.vim')
+    "call dein#add('Shougo/neosnippet-snippets')
+
+    call dein#add('tyru/caw.vim.git')
+    call dein#add('davidhalter/jedi-vim')
+    " call dein#add('ervandew/supertab')
+
+    " Required:
+    call dein#end()
+    call dein#save_state()
+    endif
+
+" Required:
+filetype plugin indent on
+syntax enable
+
+"End dein Scripts-------------------------
 

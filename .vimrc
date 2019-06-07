@@ -111,6 +111,9 @@ set expandtab
 "
 " *************************************
 
+" ---------------------------
+" caw.vim
+" ---------------------------
 " コメントアウト設定(caw)
 nmap <C-K> <Plug>(caw:hatpos:toggle)
 vmap <C-K> <Plug>(caw:hatpos:toggle)
@@ -122,6 +125,10 @@ inoremap <silent> っj <ESC>
 " ノーマルモード時だけ ; と : を入れ替える
 nnoremap ; :
 nnoremap : ;
+
+" よく使う割に打ちにくいキーを楽にする
+noremap <Space>h ^
+noremap <Space>l $
 
 " *************************************
 " 
@@ -154,7 +161,6 @@ if dein#load_state('~/.cache/dein')
 
     call dein#add('tyru/caw.vim.git')
     call dein#add('davidhalter/jedi-vim')
-    " call dein#add('ervandew/supertab')
 
     " Required:
     call dein#end()

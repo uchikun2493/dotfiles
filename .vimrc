@@ -1,3 +1,9 @@
+" *************************************
+" 
+" フォントとカラーの設定
+"
+" *************************************
+
 set guifont=SF\ Mono\ 14
 set linespace=0
 let                 &encoding = 'utf-8'
@@ -10,6 +16,12 @@ set t_Co=256
 
 " シンタックスハイライトを有効
 syntax enable
+
+" *************************************
+" 
+" 挙動の設定
+"
+" *************************************
 
 " クリップボードの共有
 set clipboard+=unnamed
@@ -132,6 +144,36 @@ noremap <Space>l $
 
 " *************************************
 " 
+" markdownの設定
+"
+" *************************************
+
+" plasticboy/vim-markdown
+" 折りたたみの禁止
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_auto_insert_bullets = 0
+let g:vim_markdown_new_list_item_indent = 0
+
+" kannokanno/previm
+autocmd BufRead,BufNewFile *.md set filetype=markdown
+let g:previm_open_cmd = 'open -a Google\ Chrome'
+" ctrl pでプレビュー
+nnoremap <silent> <C-p> :PrevimOpen<CR>
+
+" *************************************
+" 
+" openbrowserの設定
+"
+" *************************************
+
+" tyru/open-browser.vim
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
+
+
+" *************************************
+" 
 " dein
 "
 " *************************************
@@ -161,6 +203,10 @@ if dein#load_state('~/.cache/dein')
 
     call dein#add('tyru/caw.vim.git')
     call dein#add('davidhalter/jedi-vim')
+    call dein#add('twitvim/twitvim')
+    call dein#add('plasticboy/vim-markdown')
+    call dein#add('kannokanno/previm')
+    call dein#add('tyru/open-browser.vim')
 
     " Required:
     call dein#end()

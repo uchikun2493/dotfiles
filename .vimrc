@@ -1,11 +1,13 @@
 " *************************************
-" 
-" フォントとカラーの設定
+"
+" vimの見た目の設定
 "
 " *************************************
 
-set guifont=SF\ Mono\ 14
-set linespace=0
+" gvimのフォント
+" set guifont=SF\ Mono\ 14
+" 行間の設定
+" set linespace=0
 let                 &encoding = 'utf-8'
 let &fileencoding = &encoding
 let &ambiwidth = 'double'
@@ -123,13 +125,6 @@ set expandtab
 "
 " *************************************
 
-" ---------------------------
-" caw.vim
-" ---------------------------
-" コメントアウト設定(caw)
-nmap <C-K> <Plug>(caw:hatpos:toggle)
-vmap <C-K> <Plug>(caw:hatpos:toggle)
-
 " jjでエスケープ
 inoremap <silent> jj <ESC>
 inoremap <silent> っj <ESC>
@@ -141,6 +136,17 @@ nnoremap : ;
 " よく使う割に打ちにくいキーを楽にする
 noremap <Space>h ^
 noremap <Space>l $
+
+nnoremap <CR> o<Esc>
+
+" *************************************
+" 
+" caw.vim
+"
+" *************************************
+" コメントアウト設定(caw)
+nmap <S-C> <Plug>(caw:hatpos:toggle)
+vmap <S-C> <Plug>(caw:hatpos:toggle)
 
 " *************************************
 " 

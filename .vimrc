@@ -4,16 +4,13 @@
 "
 " *************************************
 
-" gvimのフォント
-" set guifont=SF\ Mono\ 14
-" 行間の設定
-" set linespace=0
-let                 &encoding = 'utf-8'
+let &encoding = 'utf-8'
 let &fileencoding = &encoding
 let &ambiwidth = 'double'
 
 " カラー設定
-colorscheme adventurous
+set background=dark
+colorscheme hybrid
 set t_Co=256
 
 " シンタックスハイライトを有効
@@ -30,6 +27,7 @@ set clipboard+=unnamed
 
 " スワップファイルを作らない
 set noswapfile
+
 
 " *************************************
 " 
@@ -65,7 +63,6 @@ vnoremap v $h
 " TABにて対応ペアにジャンプ
 nnoremap <Tab> %
 vnoremap <Tab> %
-
 
 " カーソルの左右移動で行末から次の行の行頭への移動が可能になる
 set whichwrap=b,s,h,l,<,>,[,],~ 
@@ -129,6 +126,8 @@ set expandtab
 inoremap <silent> jj <ESC>
 inoremap <silent> っj <ESC>
 
+inoremap <C-b> <BS>
+
 " ノーマルモード時だけ ; と : を入れ替える
 nnoremap ; :
 nnoremap : ;
@@ -177,7 +176,6 @@ let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 
-
 " *************************************
 " 
 " dein
@@ -213,6 +211,8 @@ if dein#load_state('~/.cache/dein')
     call dein#add('plasticboy/vim-markdown')
     call dein#add('kannokanno/previm')
     call dein#add('tyru/open-browser.vim')
+    call dein#add('lervag/vimtex')
+    call dein#add('thinca/vim-quickrun')
 
     " Required:
     call dein#end()

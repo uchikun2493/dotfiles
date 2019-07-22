@@ -23,11 +23,10 @@ syntax enable
 " *************************************
 
 " クリップボードの共有
-set clipboard+=unnamed
+set clipboard+=unnamedplus
 
 " スワップファイルを作らない
 set noswapfile
-
 
 " *************************************
 " 

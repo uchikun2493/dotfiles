@@ -1,1 +1,0 @@
-/home/uchida/dotfiles/.vim

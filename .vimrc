@@ -23,10 +23,18 @@ syntax enable
 " *************************************
 
 " クリップボードの共有
-set clipboard+=unnamedplus
+set clipboard+=unnamed
 
 " スワップファイルを作らない
 set noswapfile
+
+" xの動作
+nnoremap x "_x
+
+" ヤンクレジスタに格納されるコマンド
+let g:yankring_n_keys = 'Y D'
+" default
+" let g:yankring_n_keys = 'Y D x X'
 
 " *************************************
 " 

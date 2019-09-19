@@ -8,9 +8,17 @@ let &encoding = 'utf-8'
 let &fileencoding = &encoding
 let &ambiwidth = 'double'
 
-" カラー設定
-set background=dark
-colorscheme hybrid
+" カラー設定をOSで切り替える
+let OSTYPE = system('uname')
+if OSTYPE == "Linux\n"
+    colorscheme default
+    " set background=dark
+    " colorscheme hybrid
+else
+    set background=dark
+    colorscheme hybrid
+endif
+
 set t_Co=256
 
 " シンタックスハイライトを有効
@@ -23,10 +31,22 @@ syntax enable
 " *************************************
 
 " クリップボードの共有
-set clipboard+=unnamed
+" OSで切り替える、winは使わないから知らない
+let OSTYPE = system('uname')
+if OSTYPE == "Linux\n"
+    " linux環境の場合
+    set clipboard=unnamedplus
+else
+    " macの場合
+    set clipboard+=unnamed
+endif
 
 " スワップファイルを作らない
 set noswapfile
+" バックアップファイル出力無効
+set nobackup
+" undoファイル出力無効
+set noundofile
 
 " xの動作
 nnoremap x "_x

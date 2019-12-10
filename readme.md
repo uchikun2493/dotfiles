@@ -1,6 +1,15 @@
 # README
 
+## Overview
 my dotfiles and dockerfile
+
+## Install
+
+```
+$ git clone https://github.com/uchikun2493/dotfiles.git
+```
+
+## Files
 
 - .vim
     - vimのプラグインなど格納されているフォルダ
@@ -8,24 +17,22 @@ my dotfiles and dockerfile
     - vimの設定ファイル
 - setup.sh
     - 初期設定用のシェルスクリプト
-        - vundleのインストール
         - ホームディレクトリに".vim", ".vimrc"のシンボリックリンクを貼る
-- init.vim
-    - Onivimの設定ファイル(.vimrcに相当する)
 - docker
-    pyhton環境をdockerで構築する
+    pyhton環境をdockerで構築する，まだテストと勉強中
 
     - setup_ubuntu
         - ubuntuをいれ，その中にpythonを整える
     - setup_python
         - Docker Hubからpythonを引っ張る方法
         - debianがついてくるみたいでaptなど使える
-    
-    ```
-    $ # cd setup_ubuntu or setup_python
-    $ # build
-    $ sh setup.sh
-    $ # sample run
-    $ sh python_run.sh
-    ```
+
+## Setup
+```
+$ # cd setup_ubuntu or setup_python
+$ # build
+$ sh setup.sh
+$ # sample run
+$ sh python_run.sh
+```
 

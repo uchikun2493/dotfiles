@@ -9,15 +9,17 @@ let &fileencoding = &encoding
 let &ambiwidth = 'double'
 
 " カラー設定をOSで切り替える
-let OSTYPE = system('uname')
-if OSTYPE == "Linux\n"
-    colorscheme default
+" let OSTYPE = system('uname')
+" if OSTYPE == "Linux\n"
+    " colorscheme default
     " set background=dark
     " colorscheme hybrid
-else
-    set background=dark
-    colorscheme hybrid
-endif
+" else
+    " set background=dark
+    " colorscheme hybrid
+" endif
+set background=dark
+colorscheme hybrid
 
 set t_Co=256
 
@@ -32,14 +34,13 @@ syntax enable
 
 " クリップボードの共有
 " OSで切り替える、winは使わないから知らない
-let OSTYPE = system('uname')
-if OSTYPE == "Linux\n"
-    " linux環境の場合
-    set clipboard=unnamedplus
-else
-    " macの場合
-    set clipboard+=unnamed
-endif
+" let OSTYPE = system('uname')
+" if OSTYPE == "Linux\n"
+    " set clipboard=unnamedplus
+" else
+    " set clipboard+=unnamed
+" endif
+set clipboard+=unnamed
 
 " スワップファイルを作らない
 set noswapfile

@@ -16,13 +16,12 @@ set t_Co=256
 syntax enable
 
 " *************************************
-" 挙動の設定
+" 
 " *************************************
 
-" クリップボードの共有
-" if this OS is Linux
+" If this OS is Linux
 " set clipboard=unnamedplus
-" if this OS is macOS
+" If this OS is macOS
 set clipboard+=unnamed
 
 " スワップファイルを作らない
@@ -32,9 +31,8 @@ set nobackup
 " undoファイル出力無効
 set noundofile
 
-" xの動作
+" xでヤンクレジスタに格納しない
 nnoremap x "_x
-" nnoremap x "_x
 
 " ヤンクレジスタに格納されるコマンド
 let g:yankring_n_keys = 'Y D'
@@ -42,14 +40,14 @@ let g:yankring_n_keys = 'Y D'
 " let g:yankring_n_keys = 'Y D x X'
 
 " *************************************
-" 移動
+" move
 " *************************************
 
 " INSERT時はCtrl + {hjkl}でカーソル移動
 " inoremap <C-j> <Down>
 " inoremap <C-k> <Up>
-" inoremap <C-h> <Left>
-" inoremap <C-l> <Right>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
 
 " j, k による移動を折り返されたテキストでも自然に振る舞うように変更
 nnoremap j gj
@@ -129,7 +127,7 @@ set shiftwidth=4 " smartindentで増減する幅
 set expandtab
 
 " *************************************
-" キーマッピング
+" Key mapping
 " *************************************
 
 " jjでエスケープ
@@ -138,7 +136,7 @@ inoremap <silent> っj <ESC>
 
 inoremap <C-b> <BS>
 
-" ノーマルモード時だけ ; と : を入れ替える
+" In normal mode, swap ; and :
 nnoremap ; :
 nnoremap : ;
 
@@ -146,6 +144,7 @@ nnoremap : ;
 noremap <Space>h ^
 noremap <Space>l $
 
+" 空行をCRで入れる
 nnoremap <CR> o<Esc>
 
 " *************************************
@@ -161,13 +160,13 @@ vmap <S-C> <Plug>(caw:hatpos:toggle)
 " *************************************
 "
 " Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/snippets'
+"let g:neosnippet#snippets_directory='~/.vim/snippets'
 
 " Plugin key-mappings.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+"imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+"smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+"xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
@@ -175,25 +174,24 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 " \ pumvisible() ? "\<C-n>" :
 " \ neosnippet#expandable_or_jumpable() ?
 " \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+"smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+"\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
-
-
+"if has('conceal')
+"  set conceallevel=2 concealcursor=niv
+"endif
 
 " *************************************
 " markdown
 " *************************************
 
 " plasticboy/vim-markdown
-" 折りたたみの禁止
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_new_list_item_indent = 0
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
 
 " kannokanno/previm
 autocmd BufRead,BufNewFile *.md set filetype=markdown
@@ -209,6 +207,12 @@ nnoremap <silent> <C-p> :PrevimOpen<CR>
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
+
+
+" *************************************
+" deoplate
+" *************************************
+" let g:deoplete#enable_at_startup = 1
 
 " *************************************
 " dein
@@ -229,12 +233,11 @@ set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state('~/.cache/dein')
     call dein#begin('~/.cache/dein')
 
-    " Let dein manage dein
+        " Let dein manage dein
     " Required:
     call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 
     " Add or remove your plugins here like this:
-    "
     call dein#add('Shougo/deoplete.nvim')
     if !has('nvim')
         call dein#add('roxma/nvim-yarp')
@@ -253,7 +256,7 @@ if dein#load_state('~/.cache/dein')
     call dein#add('tyru/open-browser.vim')
     call dein#add('lervag/vimtex')
     call dein#add('thinca/vim-quickrun')
-
+    
     " Required:
     call dein#end()
     call dein#save_state()

@@ -14,6 +14,9 @@ alias C='clear'
 alias ga='git add'
 alias gc='git commit -m'
 
+## vimrc
+alias vimrc='vim ~/.vimrc'
+
 ## cdしたらls
 functions --copy cd standard_cd
 function cd

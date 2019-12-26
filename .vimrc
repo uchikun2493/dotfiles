@@ -2,6 +2,7 @@
 " vimの見た目の設定
 " *************************************
 
+" encoding setting
 let &encoding = 'utf-8'
 let &fileencoding = &encoding
 let &ambiwidth = 'double'
@@ -33,11 +34,7 @@ set noundofile
 
 " xでヤンクレジスタに格納しない
 nnoremap x "_x
-
-" ヤンクレジスタに格納されるコマンド
-let g:yankring_n_keys = 'Y D'
-" default
-" let g:yankring_n_keys = 'Y D x X'
+nnoremap X "_X
 
 " *************************************
 " move
@@ -117,14 +114,24 @@ nnoremap - <c-x>
 " バックスペースでなんでも消せるようにする
 set backspace=indent,eol,start
 
-" set list                " 不可視文字の可視化
-set number              " 行番号の表示
-set wrap                " 長いテキストの折り返し
-set textwidth=0         " 自動的に改行が入るのを無効化
+" 自動的に改行が入るのを無効化
+set textwidth=0
 set tabstop=4
 set softtabstop=0
-set shiftwidth=4 " smartindentで増減する幅
+" smartindentで増減する幅
+set shiftwidth=4
 set expandtab
+
+" *************************************
+" Appearance
+" *************************************
+"
+" disp. filename
+set laststatus=2
+" 行番号の表示
+set number
+" 長いテキストの折り返し
+set wrap
 
 " *************************************
 " Key mapping
@@ -134,6 +141,7 @@ set expandtab
 inoremap <silent> jj <ESC>
 inoremap <silent> っj <ESC>
 
+" backspace
 inoremap <C-b> <BS>
 
 " In normal mode, swap ; and :
@@ -256,6 +264,9 @@ if dein#load_state('~/.cache/dein')
     call dein#add('tyru/open-browser.vim')
     call dein#add('lervag/vimtex')
     call dein#add('thinca/vim-quickrun')
+    call dein#add('deris/vim-shot-f')
+    call dein#add('Yggdroot/indentLine')
+    
     
     " Required:
     call dein#end()

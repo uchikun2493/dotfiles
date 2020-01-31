@@ -13,6 +13,7 @@ alias C='clear'
 ## git command 
 alias ga='git add'
 alias gc='git commit -m'
+alias gp='git push'
 
 ## vimrc
 alias vimrc='vim ~/.vimrc'

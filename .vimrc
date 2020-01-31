@@ -1,23 +1,13 @@
 " *************************************
-" vimの見た目の設定
+" encoding setting
 " *************************************
 
-" encoding setting
 let &encoding = 'utf-8'
 let &fileencoding = &encoding
 let &ambiwidth = 'double'
 
-" color scheme
-set background=dark
-colorscheme hybrid
-
-set t_Co=256
-
-" syntax enable
-syntax enable
-
 " *************************************
-" 
+" behavior
 " *************************************
 
 " If this OS is Linux
@@ -78,19 +68,19 @@ set mouse=a
 set ttymouse=xterm2
 
 " *************************************
-" 検索
+" search
 " *************************************
 
-" 検索マッチテキストをハイライト 
+" highlight match text
 set hlsearch            
 
-" 検索のハイライトをESC 2回で消す
+" clear highlights with ESC 2 times
 nnoremap <ESC><ESC> :nohlsearch<CR>
-" 大文字小文字を区別しない
+" ignore case
 set ignorecase
 " 検索文字に大文字がある場合は大文字小文字を区別
 set smartcase
-" インクリメンタルサーチ
+" incremental serach
 set incsearch
 " 対応する括弧などをハイライト表示する
 set showmatch
@@ -108,8 +98,6 @@ inoremap []  []<left>
 vnoremap :  :s/
 vnoremap >  >gv
 vnoremap <  <gvnoremap {}  {}<left>
-nnoremap + <c-a>
-nnoremap - <c-x>
 
 " バックスペースでなんでも消せるようにする
 set backspace=indent,eol,start
@@ -122,22 +110,28 @@ set softtabstop=0
 set shiftwidth=4
 set expandtab
 
+augroup fileTypeIndent
+    autocmd!
+    autocmd BufNewFile,BufRead *.html setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.js setlocal tabstop=2 softtabstop=2 shiftwidth=2
+augroup END
+
 " *************************************
 " Appearance
 " *************************************
 "
 " disp. filename
 set laststatus=2
-" 行番号の表示
+" Show line numbers
 set number
-" 長いテキストの折り返し
+" Wrap text
 set wrap
 
 " *************************************
 " Key mapping
 " *************************************
 
-" jjでエスケープ
+" jj is ESC
 inoremap <silent> jj <ESC>
 inoremap <silent> っj <ESC>
 
@@ -148,23 +142,36 @@ inoremap <C-b> <BS>
 nnoremap ; :
 nnoremap : ;
 
-" よく使う割に打ちにくいキーを楽にする
+" Move to the beginning of a line
 noremap <Space>h ^
+" Move to the end of a line
 noremap <Space>l $
 
-" 空行をCRで入れる
+" Add empty line in CR
 nnoremap <CR> o<Esc>
 
+" print file path
+nnoremap <C-g> 1<C-g>
+
 " *************************************
-" caw.vim
+" comment out
+"    caw.vim
 " *************************************
-"
-" コメントアウト設定(caw)
+
 nmap <S-C> <Plug>(caw:hatpos:toggle)
 vmap <S-C> <Plug>(caw:hatpos:toggle)
 
 " *************************************
-" neosnippet
+" tex 
+"    caw.vim
+" *************************************
+
+" Hide formula while editing
+let g:tex_conceal=''
+
+" *************************************
+" snippent
+"    neosnippet
 " *************************************
 "
 " Tell Neosnippet about the other snippets
@@ -204,26 +211,21 @@ let g:vim_markdown_conceal_code_blocks = 0
 " kannokanno/previm
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 let g:previm_open_cmd = 'open -a Google\ Chrome'
-" ctrl pでプレビュー
+" preview: ctrl p
 nnoremap <silent> <C-p> :PrevimOpen<CR>
 
 " *************************************
 " openbrowser
+"    tyru/open-browser.vim
 " *************************************
 
-" tyru/open-browser.vim
-let g:netrw_nogx = 1 " disable netrw's gx mapping.
+" disable netrw's gx mapping.
+let g:netrw_nogx = 1
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 
-
 " *************************************
-" deoplate
-" *************************************
-" let g:deoplete#enable_at_startup = 1
-
-" *************************************
-" dein
+" dein.vim
 " *************************************
 
 " ポップアップを無効化
@@ -231,7 +233,7 @@ autocmd FileType python setlocal completeopt-=preview
 
 "dein Scripts-----------------------------
 if &compatible
-  set nocompatible               " Be iMproved
+  set nocompatible " Be iMproved
 endif
 
 " Required:
@@ -241,12 +243,13 @@ set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state('~/.cache/dein')
     call dein#begin('~/.cache/dein')
 
-        " Let dein manage dein
+    " Let dein manage dein
     " Required:
     call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 
     " Add or remove your plugins here like this:
     call dein#add('Shougo/deoplete.nvim')
+    " if not using neovim
     if !has('nvim')
         call dein#add('roxma/nvim-yarp')
         call dein#add('roxma/vim-hug-neovim-rpc')
@@ -257,17 +260,16 @@ if dein#load_state('~/.cache/dein')
     call dein#add('Shougo/neosnippet-snippets')
 
     call dein#add('tyru/caw.vim.git')
-    call dein#add('davidhalter/jedi-vim')
-    call dein#add('twitvim/twitvim')
-    call dein#add('plasticboy/vim-markdown')
-    call dein#add('kannokanno/previm')
+    call dein#add('davidhalter/jedi-vim', {'lazy': 1, 'on_ft': 'python'})
+    " call dein#add('twitvim/twitvim')
+    call dein#add('plasticboy/vim-markdown', {'lazy': 1, 'on_ft': 'markdown'})
+    call dein#add('kannokanno/previm', {'lazy': 1, 'on_ft': 'markdown'})
     call dein#add('tyru/open-browser.vim')
-    call dein#add('lervag/vimtex')
+    call dein#add('lervag/vimtex', {'lazy': 1, 'on_ft': 'tex'})
     call dein#add('thinca/vim-quickrun')
     call dein#add('deris/vim-shot-f')
     call dein#add('Yggdroot/indentLine')
-    
-    
+
     " Required:
     call dein#end()
     call dein#save_state()
@@ -281,4 +283,12 @@ if has('vim_starting') && dein#check_install()
     call dein#install()
 endif
 "End dein Scripts-------------------------
+
+" *************************************
+" colorscheme
+" *************************************
+
+" color scheme
+set background=dark
+colorscheme hybrid
 

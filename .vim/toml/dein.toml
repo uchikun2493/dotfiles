@@ -3,40 +3,15 @@ repo = 'Shougo/dein.vim'
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-hook_add = '''
-    if !has('nvim')
-        call dein#add('roxma/nvim-yarp')
-        call dein#add('roxma/vim-hug-neovim-rpc')
-    endif
-    let g:deoplete#enable_at_startup = 1
-'''
 
 [[plugins]]
-call 'Shougo/neosnippet.vim'
+repo = 'roxma/nvim-yarp'
 
 [[plugins]]
-call 'Shougo/neosnippet-snippets'
-on_source = ['neosnippet.vim']
+repo =  'roxma/vim-hug-neovim-rpc'
+
 
 [[plugins]]
 call 'tyru/caw.vim.git'
-
-[[plugins]]
-call 'twitvim/twitvim'
-
-[[plugins]]
-call 'plasticboy/vim-markdown'
-
-[[plugins]]
-call 'kannokanno/previm'
-
-[[plugins]]
-call 'tyru/open-browser.vim'
-
-[[plugins]]
-call 'lervag/vimtex'
-
-[[plugins]]
-call 'thinca/vim-quickrun'
 
 

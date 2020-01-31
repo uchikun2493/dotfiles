@@ -269,6 +269,7 @@ if dein#load_state('~/.cache/dein')
     call dein#add('thinca/vim-quickrun')
     call dein#add('deris/vim-shot-f')
     call dein#add('Yggdroot/indentLine')
+    call dein#add('lambdalisue/fern.vim')
 
     " Required:
     call dein#end()

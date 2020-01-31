@@ -1,6 +1,5 @@
 
 ## alias
-# bdで親ディレクトリに戻る
 alias bd='cd ..'
 # exit
 alias q='exit'
@@ -29,6 +28,8 @@ end
 set PATH $HOME/.pyenv/bin $PATH
 eval (pyenv init - | source)
 
-# 自分で入れたvimのパスを通す
-set PATH /usr/local/Cellar/vim/8.1.1700/bin $PATH
-
+# vim path (Mac only)
+switch (uname)
+case Darwin
+    set PATH /usr/local/Cellar/vim/8.1.1700/bin $PATH
+end

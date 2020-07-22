@@ -14,8 +14,13 @@ alias ga='git add'
 alias gc='git commit -m'
 alias gp='git push'
 
-## vimrc
+## edit vimrc
 alias vimrc='vim ~/.vimrc'
+
+## key bindings
+# vi mode
+# fish_vi_key_bindings
+fish_default_key_bindings
 
 ## cdしたらls
 functions --copy cd standard_cd

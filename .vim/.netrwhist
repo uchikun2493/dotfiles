@@ -1,10 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/Users/uchidamasato/dotfiles/.vim'
-let g:netrw_dirhist_2='/Users/uchidamasato/workspace/til/vim'
-let g:netrw_dirhist_3='/Users/uchidamasato/workspace/kosen_trial_lesson/.git'
-let g:netrw_dirhist_4='/Users/uchidamasato/workspace/kosen_trial_lesson/src'
-let g:netrw_dirhist_5='/Users/uchidamasato/.config/fish'
-let g:netrw_dirhist_6='/Users/uchidamasato/Desktop'
-let g:netrw_dirhist_7='/Users/uchidamasato/workspace/py_modules/scripts/fft'
-let g:netrw_dirhist_8='/Users/uchidamasato/workspace/pinnovation/web_app/scripts'
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/uchidamasato/workspace/bearing_ae/scripts'
+let g:netrw_dirhist_2='/Users/uchidamasato/Documents/kosen/図書館/図書ぶらり_新人'
+let g:netrw_dirhist_3='/Users/uchidamasato/Library/Mobile Documents/com~apple~CloudDocs/photo/photo_exhibition_idia/idia/0001_kanako'
+let g:netrw_dirhist_4='/Users/uchidamasato/workspace/py_modules/ploter'
+let g:netrw_dirhist_5='/Users/uchidamasato/dotfiles/docker/ssl'
